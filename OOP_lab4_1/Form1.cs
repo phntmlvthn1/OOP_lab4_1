@@ -31,8 +31,6 @@ namespace OOP_lab4_1
 
         }
 
-
-
         private void Form1_KeyDown_1(object sender, KeyEventArgs e)
         {
             Graphics g = Graphics.FromImage(bmp);
@@ -241,43 +239,12 @@ namespace OOP_lab4_1
                 if (objects[i] != null)
                 if (objects[i].isHit(x, y))
                 {
-                    
                     objects[i].DrawCircleGreen(sender, bmp, g);
                     DrawAll3(sender, bmp, g);
                     return true;
                 }
             }
             return false;
-        }
-
-        /*
-        public void DelizMas(int j)
-        {
-            CCircle[] objects2 = new CCircle[100]; 
-
-            for ( int i = 0; i <j; i ++)
-            {
-                
-                objects2[i] = objects[i]; 
-                
-            }
-            for (int k = j+1; k<size; k++)
-            {
-                objects2[k-1] = objects[k];
-            }
-            objects = objects2;
-            size--;
-
-
-        }
-        */
-
-        public void DelizMas(int j)
-        {
-            objects[j] = null;
-         
-
-
         }
 
         public void Del(Form1 sender, Bitmap bmp, Graphics g)
@@ -288,7 +255,7 @@ namespace OOP_lab4_1
                     if (objects[i].isSelected)
                 {
                         objects[i].DelCircle(sender, bmp, g);
-                        DelizMas(i);
+                        objects[i] = null;
                 }
             }
         }
